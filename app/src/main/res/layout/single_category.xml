@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class = "CategoryBinding">
+
+        <variable
+            name="MainViewModel"
+            type="com.sand_corporation.www.mvvmgridviewwithretrofit.MainActivity.MainViewModel.MainViewModel"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:background="@color/gridBackGround">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            app:imageUrl="@{MainViewModel.getImageUrl()}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{MainViewModel.category.title}"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{MainViewModel.category.description}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="center_horizontal"/>
+
+    </LinearLayout>
+</layout>
