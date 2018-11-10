@@ -9,3 +9,4 @@
 /build
 /captures
 .externalNativeBuild
+/NodeJsServer/node_modules

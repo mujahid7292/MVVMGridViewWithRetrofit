@@ -6,6 +6,7 @@ import android.databinding.BindingAdapter;
 import android.widget.ImageView;
 
 import com.sand_corporation.www.mvvmgridviewwithretrofit.MainActivity.MainModel.Category;
+import com.sand_corporation.www.mvvmgridviewwithretrofit.MainActivity.MainRepository.MainRepository;
 import com.sand_corporation.www.mvvmgridviewwithretrofit.R;
 import com.squareup.picasso.Picasso;
 
@@ -15,14 +16,15 @@ public class MainViewModel extends ViewModel {
 
     public Category category;
     public MutableLiveData<ArrayList<MainViewModel>> arrayListMutableLiveData = new MutableLiveData<>();
-    public ArrayList<MainViewModel> mainViewModelArrayList;
+    private MainRepository mRepository;
 
     public MainViewModel(Category category) {
         this.category = category;
     }
 
     public MainViewModel() {
-
+        mRepository = new MainRepository();
+        arrayListMutableLiveData = mRepository.getArrayListMutableLiveData();
     }
 
     public String getImageUrl(){
@@ -36,12 +38,6 @@ public class MainViewModel extends ViewModel {
     }
 
     public MutableLiveData<ArrayList<MainViewModel>> getArrayListMutableLiveData() {
-        mainViewModelArrayList = new ArrayList<>();
-        Category category = new Category("123","Shoes","Lots of lots of shoes","shoes1.png");
-        MainViewModel mainViewModel = new MainViewModel(category);
-        mainViewModelArrayList.add(mainViewModel);
-
-        arrayListMutableLiveData.setValue(mainViewModelArrayList);
         return arrayListMutableLiveData;
     }
 }
